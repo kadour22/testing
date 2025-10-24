@@ -11,5 +11,6 @@ class index_api_view(APIView) :
     renderer_classes = [TemplateHTMLRenderer]
     template_name = "index.html"
 
-    # def get(self, request):
-    #     return
+    def get(self, request):
+        book = {"title":"arch linux"}
+        return Response(book)
