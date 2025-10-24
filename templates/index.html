@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <h1>WebSocket Test</h1>
+  <script>
+    // Change this to match your Django Channels websocket URL
+    const socket = new WebSocket('ws://127.0.0.1:8000/ws/test/');
+
+    socket.onopen = function (e) {
+      console.log('✅ Connection established!');
+      socket.send('Hello Django!');
+    };
+
+    socket.onmessage = function (e) {
+      console.log('📩 Message from server:', e.data);
+    };
+
+    socket.onclose = function (e) {
+      console.log('❌ Connection closed:', e);
+    };
+
+    socket.onerror = function (error) {
+      console.error('⚠️ WebSocket error:', error);
+    };
+  </script>
+</body>
+</html>
