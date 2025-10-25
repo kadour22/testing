@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-81qj!+y-pl!f4_d_(54vp&m5a0t!#53(-awqwcsv+v@&!^a$)4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["testing-k2wi.onrender.com"]
 
 
 # Application definition
@@ -120,7 +120,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("rediss://default:AVeLAAIncDIxOGFiMWQyMTg1MDc0ZjQxOGJjZmE0Y2FhOTE1NzMwNXAyMjI0MTE@whole-perch-22411.upstash.io:6379")],
+            "hosts": [(os.getenv("REDIS_URL"))],
         },
     },
 }
